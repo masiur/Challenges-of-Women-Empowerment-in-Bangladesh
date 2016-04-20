@@ -7,17 +7,19 @@ TODO:
 
 #Developers
 * [MD. ABU Talha](https://github.com/talha08)
-*Registration*: 2012331008
+(2012331008)
 * [Masiur Rahman Siddiki](https://github.com/masiur)
-*Registration*: 2012331028
+(2012331028)
+
+
 
 #Supervisor
 
-	+[Md. Ruhul Amin](https://www.linkedin.com/in/shajibsust)
+	*[Md. Ruhul Amin](https://www.linkedin.com/in/shajibsust)
 		Assistant Professor,
 		Dept. of Computer Science and Engineering at Shahjalal University of Science and Technology.
 		
-	+[Md. Saiful Islam Saif](https://www.linkedin.com/in/saifulcse)
+	*[Md. Saiful Islam Saif](https://www.linkedin.com/in/saifulcse)
 		Assistant Professor,
 		Dept. of Computer Science and Engineering at Shahjalal University of Science and Technology.
 		
