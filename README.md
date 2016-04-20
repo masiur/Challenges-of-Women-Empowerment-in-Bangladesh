@@ -7,9 +7,9 @@ TODO:
 
 #Developers
 
-	+ [MD. ABU Talha](https://github.com/talha08)
+	[MD. ABU Talha](https://github.com/talha08)
 		2012331008
-	+ [Masiur Rahman Siddiki](https://github.com/masiur)
+	[Masiur Rahman Siddiki](https://github.com/masiur)
 		2012331028
 
 #Supervisor
