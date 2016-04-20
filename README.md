@@ -1,7 +1,5 @@
-<snippet>
-  <content><![CDATA[
-  
-# ${1:Predict-Women-Condition-in-Bangladesh-through-Bangla-Newspaper}
+
+# Predict-Women-Condition-in-Bangladesh-through-Bangla-Newspaper
 TODO: 
 
 	+ Collect data from Bangla Newspaper,
@@ -26,9 +24,6 @@ TODO:
 		
 	
 ## License
-TODO: MIT license
+ MIT license
 
 
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
