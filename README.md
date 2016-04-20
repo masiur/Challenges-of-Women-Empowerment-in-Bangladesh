@@ -6,11 +6,10 @@ TODO:
 	+ Analyze data and predict women condition
 
 #Developers
-[a link](https://github.com/user/repo/blob/branch/other_file.md)
-	[MD. ABU Talha](https://github.com/talha08)
-		2012331008
-	[Masiur Rahman Siddiki](https://github.com/masiur)
-		2012331028
+[MD. ABU Talha](https://github.com/talha08)
+Registration: 2012331008
+[Masiur Rahman Siddiki](https://github.com/masiur)
+Registration: 2012331028
 
 #Supervisor
 
