@@ -25,6 +25,6 @@ TODO:
   
 	
 ## License
- 	**MIT license**
+ 	MIT license
 
 
