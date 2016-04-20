@@ -2,8 +2,8 @@
 # Predict-Women-Condition-in-Bangladesh-through-Bangla-Newspaper
 TODO: 
 
-	+ Collect data from Bangla Newspaper,
-	+ Analyze data and predict women condition
+		+ Collect data from Bangla Newspaper,
+		+ Analyze data and predict women condition
 
 ##Developers
 
@@ -25,6 +25,6 @@ TODO:
   
 	
 ## License
- **MIT license**
+ 	**MIT license**
 
 
