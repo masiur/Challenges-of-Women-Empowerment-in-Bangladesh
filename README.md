@@ -7,7 +7,7 @@ TODO:
 
 ##Developers
 
-* **[MD. ABU Talha](https://github.com/talha08)**  
+* **[Md. Abu Talha](https://github.com/talha08)**  
 *Registration No*: 2012331008   
 
 * **[Masiur Rahman Siddiki](https://github.com/masiur)**     
