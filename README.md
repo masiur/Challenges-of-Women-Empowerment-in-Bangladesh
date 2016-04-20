@@ -14,9 +14,10 @@ TODO:
 
 
 #Supervisors
-*[Md. Ruhul Amin](https://www.linkedin.com/in/shajibsust)
-**Assistant Professor**,
-Dept. of Computer Science and Engineering at Shahjalal University of Science and Technology.
+
+* **[Md. Ruhul Amin](https://www.linkedin.com/in/shajibsust)**    
+**Assistant Professor**, *Department of Computer Science and Engineering*, Shahjalal University of Science and Technology.    
+  
 *[Md. Saiful Islam Saif](https://www.linkedin.com/in/saifulcse)
 **Assistant Professor**,
 Dept. of Computer Science and Engineering at Shahjalal University of Science and Technology.
