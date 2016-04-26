@@ -1,0 +1,78 @@
+﻿1. Crawl data from Bengali Newspaper websites.
+2. Database design to store data,
+
+Table Name: "news_data"
+--------------------------------------------------------------------------
+id |  news_link | title | details | newspaper| date |created_at|updated_at
+--------------------------------------------------------------------------
+
+
+3. Then we search for some keyword in news details,  
+
+  keyword are,
+
+                      1.  নারী
+	2.  ধর্ষণ 
+	3 .নারী ধর্ষণ
+	4. নারী লাশ
+	5. নারী অধিকার 
+	6. নারী রাজনীতি 
+	7. নারী আত্মহত্যা
+	8. গৃহবধূ হত্যা 
+	9. যৌন হয়রানী 
+	10. যৌতুক
+                     11.  আদালত  
+
+4. We search the frequency of these keyword in details news and title. 
+
+5. Store the frequency per news at our database with a new table.
+
+
+Table Name: "analize_data"
+---------------------------------------------------------------------------------
+id |  news_link | suecide_fr | rape_fr | politics_fr | sexualHr_fr| women_fr|---
+---------------------------------------------------------------------------------
+
+6. Then we can define some fixed value for caluculate result, 
+
+    example, 
+      
+         if the word frequency of "ধর্ষণ" is 10 or 7 or 5...
+          Here the value are in numeric mode,
+              so,if we define a fixed value for "ধর্ষণ", 
+
+         suppose,  
+ 		
+		define value for the word,  "ধর্ষণ" =10;
+             
+               then,
+		  when we get the frequency of "ধর্ষণ" is equal 10 or greater than 10 , we detect this news as a Dharshan news.
+
+  And, we do same calculation for other keyword.
+
+7. Then we plot these data in a graph and view in web page. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
