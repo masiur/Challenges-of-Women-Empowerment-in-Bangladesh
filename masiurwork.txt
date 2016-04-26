@@ -1,0 +1,41 @@
+## Prothom-alo
+
+search key: http://www.prothom-alo.com/search/?q=%E0%A6%A8%E0%A6%BE%E0%A6%B0%E0%A7%80+
+section : bangladesh
+http://www.prothom-alo.com/bangladesh/article/709774/%E0%A6%A8%E0%A6%BE%E0%A6%B0%E0%A7%80-%E0%A6%AD%E0%A7%87%E0%A6%BE%E0%A6%9F%E0%A6%BE%E0%A6%B0%E0%A6%A6%E0%A7%87%E0%A6%B0-%E0%A6%95%E0%A6%BE%E0%A6%9B%E0%A7%87-%E0%A6%AD%E0%A7%87%E0%A6%BE%E0%A6%9F-%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A6%9B%E0%A7%87%E0%A6%A8-%E0%A6%B6%E0%A7%81%E0%A6%A7%E0%A7%81%E0%A6%87-%E0%A6%A8%E0%A6%BE%E0%A6%B0%E0%A7%80
+
+section: opinion/
+
+http://www.prothom-alo.com/opinion/article/755017/%E0%A6%A8%E0%A6%BE%E0%A6%B0%E0%A7%80%E0%A6%B0-%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%AE%E0%A6%A4%E0%A6%BE%E0%A7%9F%E0%A6%A8%E0%A7%87%E0%A6%B0-%E0%A6%A8%E0%A6%A4%E0%A7%81%E0%A6%A8-%E0%A6%AE%E0%A6%BE%E0%A6%87%E0%A6%B2%E0%A6%AB%E0%A6%B2%E0%A6%95
+
+http://www.prothom-alo.com/search/?q=নারীর+ক্ষমতা
+									q = নারী+ধর্ষন // no result found in first page
+									q = নারী+লাশ  // 13463 results  
+									q = নারী+নির্যাতন 
+									q = নারী+অধিকার
+									q = নারী+আন্দোলন
+									q = নারী+মর্যাদা
+									q = নারী+রাজনীতি
+									q = নারী+আত্মহত্যা
+									q = যৌতুক+বাল্যবিবাহ
+									q = বাল্যবিবাহ
+									q = নারী+মৃত্যু // 20000+ result 
+
+## Jugantor 
+Section: old
+
+http://www.jugantor.com/search/?layoutGrp=bvkunijoy&cx=partner-pub-2223768610047094%3A1739368677&cof=FORID%3A10&ie=UTF-8&q=নারীর+ক্ষমতা
+													q = ধর্ষন
+													q = নারী+অধিকার
+													q = 
+
+
+&siteurl=http%3A%2F%2Fwww.jugantor.com%2F
+
+Jugantor is not suitable resource
+
+## Manabzamin search does not work 
+## Kalerkantho they use google custom search 
+
+
+
