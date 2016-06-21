@@ -25,7 +25,7 @@ class CrawlerController extends Controller
                     case 1:
                         $this->prothomAloLinks();
                         echo "complete<br/>";
-                        sleep(5);
+                        sleep(125);
                         break;
                      case 2:
                         $this->prothomAloDetails();
@@ -97,6 +97,7 @@ class CrawlerController extends Controller
 
                          try {
                             $crawl->save();
+
                         } catch (\Exception $e) {
 
                         }
@@ -108,7 +109,12 @@ class CrawlerController extends Controller
 
            }
 
-           sleep(2);
+           sleep(5);
+
+           //Use the modulus operator to detect multiples of 10.
+             if ($i > 0 && $i % 10 == 0) {
+                   sleep(15);
+              }
 
     }
 }
@@ -191,7 +197,7 @@ public function prothomAloDetails()
           
           //Use the modulus operator to detect multiples of 10.
              if ($i > 0 && $i % 10 == 0) {
-                   sleep(3);
+                   sleep(5);
               }
 
       } 
