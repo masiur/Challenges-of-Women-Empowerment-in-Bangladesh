@@ -12,6 +12,45 @@ class CrawlerController extends Controller
 {
 
 
+
+
+
+   public function prothomAlo(){
+
+        ini_set('MAX_EXECUTION_TIME', -1);
+
+        for($a=1;$a<=2;$a++) {
+            try {
+                switch ($a) {
+                    case 1:
+                        $this->prothomAloLinks();
+                        echo "complete<br/>";
+                        break;
+                     case 2:
+                        $this->prothomAloDetails();
+                        echo "complete<br/>";
+                        break;
+
+                    default:
+                        echo "Something Wrong, Try Again<br/>";
+                        break;
+                }
+
+            } catch (\Exception $e) {
+
+            }
+        }
+
+    }
+
+
+
+
+
+
+
+
+
     public  function prothomAloLinks(){
 
         ini_set('MAX_EXECUTION_TIME', -1);

@@ -59,6 +59,9 @@ Route::get('data',function(){
 
 
 Route::get('all', ['uses' => 'CrawlerController@all']);
+Route::get('prothomAlo', ['uses' => 'CrawlerController@prothomAlo']);
+
+
 //Route::get('test', ['uses' => 'CrawlerController@test']);
 
 
