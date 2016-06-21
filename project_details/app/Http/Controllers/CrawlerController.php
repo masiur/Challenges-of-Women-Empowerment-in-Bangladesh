@@ -124,14 +124,17 @@ public function prothomAloDetails()
 
             $replace_array= array("1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", ":", ",");
 
-            // convert all bangle char to English char 
+            // convert all bangle char to English char
             $en_number = str_replace($search_array, $replace_array, $banglaDate);
 
-            // remove unwanted char       
+            // remove unwanted char
             $end_date =  preg_replace('/[^A-Za-z0-9:\-]/', ' ', $en_number);
 
             // convert date
             $bangla_date = date("Y-m-d H:i ", strtotime($end_date));
+            echo $bangla_date;
+
+            // output : 2014-12-31 10:57
 
 
             // output : 2014-12-31 10:57
