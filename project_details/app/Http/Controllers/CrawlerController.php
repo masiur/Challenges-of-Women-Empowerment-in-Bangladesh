@@ -132,7 +132,7 @@ public function prothomAloDetails()
 
             // convert date
             $bangla_date = date("Y-m-d H:i ", strtotime($end_date));
-            echo $bangla_date;
+           // echo $bangla_date;
 
             // output : 2014-12-31 10:57
 
