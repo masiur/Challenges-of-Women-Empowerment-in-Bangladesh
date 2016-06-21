@@ -16,12 +16,12 @@ class CreateCrawlerTable extends Migration
         {
             $table->increments('id');
             $table->text('news_link')->nullable();
-            $table->text('title')->nullable();
+           // $table->text('title')->nullable();
             $table->text('details')->nullable();
             $table->text('newspaper')->nullable();
             $table->text('date')->nullable();
-            $table->text('section')->nullable();
-            $table->timestamps();
+            //$table->text('section')->nullable();
+            //$table->timestamps();
 
         });
     }
