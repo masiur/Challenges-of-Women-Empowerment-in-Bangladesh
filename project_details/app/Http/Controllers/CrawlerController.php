@@ -120,7 +120,7 @@ public function prothomAloDetails()
             //======================================================================================
             $banglaDate = $data[1][0];
 
-            $search_array= array("?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?????????", "???????????", "?????", "??????", "??", "???", "?????", "????? ", "??????????", "???????", "???????", "????????", ":", ",");
+            $search_array= array("১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯", "০", "জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট ", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর", ":", ",");
 
             $replace_array= array("1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", ":", ",");
 
@@ -133,11 +133,6 @@ public function prothomAloDetails()
             // convert date
             $bangla_date = date("Y-m-d H:i ", strtotime($end_date));
            // echo $bangla_date;
-
-            // output : 2014-12-31 10:57
-
-
-            // output : 2014-12-31 10:57
             //======================================================================================
 
             Crawler::where('news_link', $countNum->news_link)->update([

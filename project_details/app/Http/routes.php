@@ -47,6 +47,13 @@ Route::group(array('middleware' => 'auth'), function()
 });
 
 
+
+Route::get('data',function(){
+	return \App\Crawler::all();
+});
+
+
+
 //Route::get('prothomAloLinks', ['uses' => 'CrawlerController@prothomAloLinks']);
 //Route::get('prothomAloDetails', ['uses' => 'CrawlerController@prothomAloDetails']);
 
@@ -57,9 +64,6 @@ Route::get('all', ['uses' => 'CrawlerController@all']);
 
 
 
-Route::get('data',function(){
-	return \App\Crawler::all();
-});
 
 
 
