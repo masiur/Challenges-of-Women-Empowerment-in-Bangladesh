@@ -49,7 +49,9 @@ Route::group(array('middleware' => 'auth'), function()
 
 
 Route::get('data',function(){
-	return \App\Crawler::all();
+	//return \App\Crawler::all();
+
+	return \App\Crawler::count();
 });
 
 

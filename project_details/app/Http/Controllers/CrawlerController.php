@@ -25,6 +25,7 @@ class CrawlerController extends Controller
                     case 1:
                         $this->prothomAloLinks();
                         echo "complete<br/>";
+                        sleep(5);
                         break;
                      case 2:
                         $this->prothomAloDetails();
@@ -55,7 +56,7 @@ class CrawlerController extends Controller
 
         ini_set('MAX_EXECUTION_TIME', -1);
 
-           for($page = 1; $page <= 6000 ; $page++) {
+           for($page = 1; $page <= 4600 ; $page++) {
             //set url
             $url = "http://www.prothom-alo.com/bangladesh/article?page=" . $page;
 
@@ -107,6 +108,8 @@ class CrawlerController extends Controller
 
            }
 
+           sleep(2);
+
     }
 }
 
@@ -121,10 +124,10 @@ public function prothomAloDetails()
 {
      ini_set('MAX_EXECUTION_TIME', -1);
 
-     $count = Crawler::where('news_link', 'like', 'http://www.prothom-alo.com/bangladesh/article/%')
+     $counter = Crawler::where('news_link', 'like', 'http://www.prothom-alo.com/bangladesh/article/%')
             ->get();
 
-        foreach ($count as $countNum) {
+        foreach ($counter as $i => $countNum) {
 
             $ch = curl_init($countNum->news_link);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -183,6 +186,13 @@ public function prothomAloDetails()
             ]);
 
         // }
+
+
+          
+          //Use the modulus operator to detect multiples of 10.
+             if ($i > 0 && $i % 10 == 0) {
+                   sleep(3);
+              }
 
       } 
 }
