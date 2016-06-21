@@ -112,7 +112,7 @@ class CrawlerController extends Controller
            sleep(5);
 
            //Use the modulus operator to detect multiples of 10.
-             if ($i > 0 && $i % 10 == 0) {
+             if ($page > 0 && $page % 10 == 0) {
                    sleep(15);
               }
 
