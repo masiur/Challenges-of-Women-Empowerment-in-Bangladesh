@@ -54,8 +54,8 @@ Route::get('data',function(){
 
 
 
-//Route::get('prothomAloLinks', ['uses' => 'CrawlerController@prothomAloLinks']);
-//Route::get('prothomAloDetails', ['uses' => 'CrawlerController@prothomAloDetails']);
+Route::get('prothomAloLinks', ['uses' => 'CrawlerController@prothomAloLinks']);
+Route::get('prothomAloDetails', ['uses' => 'CrawlerController@prothomAloDetails']);
 
 
 Route::get('all', ['uses' => 'CrawlerController@all']);

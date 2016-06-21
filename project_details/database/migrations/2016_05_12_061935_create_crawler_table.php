@@ -23,6 +23,25 @@ class CreateCrawlerTable extends Migration
             //$table->text('section')->nullable();
             //$table->timestamps();
 
+//bad 
+           $table->integer('rape')->default(0); 
+           $table->integer('suicide')->default(0); 
+           $table->integer('domestic_violence')->default(0); 
+           $table->integer('doury')->default(0); 
+           $table->integer('sexual_harassment')->default(0); 
+           $table->integer('murder')->default(0); 
+
+
+ //good
+           $table->integer('power')->default(0); 
+           $table->integer('job')->default(0); 
+           $table->integer('education')->default(0);
+
+           $table->integer('ovrrall')->default(0); 
+
+           $table->string('type');  
+           
+
         });
     }
 

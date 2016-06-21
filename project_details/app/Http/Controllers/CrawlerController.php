@@ -55,7 +55,7 @@ class CrawlerController extends Controller
 
         ini_set('MAX_EXECUTION_TIME', -1);
 
-           for($page = 1; $page <= 5000 ; $page++) {
+           for($page = 1; $page <= 6000 ; $page++) {
             //set url
             $url = "http://www.prothom-alo.com/bangladesh/article?page=" . $page;
 
