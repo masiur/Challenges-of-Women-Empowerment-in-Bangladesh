@@ -17,7 +17,13 @@ class CrawlerController extends Controller
 
    public function prothomAlo(){
 
-        ini_set('MAX_EXECUTION_TIME', -1);
+         ini_set('MAX_EXECUTION_TIME', 120);
+         ini_set('max_input_time', 120);
+
+         //return ini_get('max_input_time'); 
+
+        //max_execution_time = 120
+        //max_input_time = 120
 
         for($a=1;$a<=2;$a++) {
             try {
@@ -55,6 +61,7 @@ class CrawlerController extends Controller
     public  function prothomAloLinks(){
 
         ini_set('MAX_EXECUTION_TIME', -1);
+
 
            for($page = 1; $page <= 4600 ; $page++) {
             //set url
