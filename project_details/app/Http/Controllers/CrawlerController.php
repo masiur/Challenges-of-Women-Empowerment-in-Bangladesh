@@ -88,10 +88,10 @@ class CrawlerController extends Controller
                  for ($j = 0; $j < count($data); $j++) {
                    $detail = 'http://www.prothom-alo.com/bangladesh/' . $data[$j][0];
 
-                    // $check = Crawler::where('news_link', '=', $detail)
-                      //  ->count();
+                    $check = Crawler::where('news_link', '=', $detail)
+                       ->count();
 
-               // if ($check == 0) {
+               if ($check == 0) {
 
                         $crawl->news_link = $detail;
 
@@ -102,7 +102,7 @@ class CrawlerController extends Controller
 
                         }
 
-                   // }
+                   }
 
 
                 }
