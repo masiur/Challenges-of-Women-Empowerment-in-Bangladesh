@@ -17,15 +17,18 @@ class CrawlerController extends Controller
 
    public function prothomAlo(){
 
-         ini_set('MAX_EXECUTION_TIME', 120);
-         ini_set('max_input_time', 120);
+        // ini_set('MAX_EXECUTION_TIME', 120);
+         //ini_set('max_input_time', 120);
 
          //return ini_get('max_input_time'); 
 
         //max_execution_time = 120
         //max_input_time = 120
 
+        set_time_limit(0);  //this will execute untill the job finished
+
         for($a=1;$a<=2;$a++) {
+
             try {
                 switch ($a) {
                     case 1:
@@ -60,7 +63,8 @@ class CrawlerController extends Controller
 
     public  function prothomAloLinks(){
 
-        ini_set('MAX_EXECUTION_TIME', -1);
+        //ini_set('MAX_EXECUTION_TIME', -1);
+         set_time_limit(0);  //this will execute untill the job finished
 
 
            for($page = 1; $page <= 4600 ; $page++) {
@@ -95,10 +99,10 @@ class CrawlerController extends Controller
                  for ($j = 0; $j < count($data); $j++) {
                    $detail = 'http://www.prothom-alo.com/bangladesh/' . $data[$j][0];
 
-                    // $check = Crawler::where('news_link', '=', $detail)
-                      //  ->count();
+                    $check = Crawler::where('news_link', '=', $detail)
+                       ->count();
 
-               // if ($check == 0) {
+               if ($check == 0) {
 
                         $crawl->news_link = $detail;
 
@@ -109,7 +113,7 @@ class CrawlerController extends Controller
 
                         }
 
-                   // }
+                   }
 
 
                 }
@@ -135,7 +139,9 @@ class CrawlerController extends Controller
 
 public function prothomAloDetails()
 {
-     ini_set('MAX_EXECUTION_TIME', -1);
+    // ini_set('MAX_EXECUTION_TIME', -1);
+
+     set_time_limit(0);  //this will execute untill the job finished
 
      $counter = Crawler::where('news_link', 'like', 'http://www.prothom-alo.com/bangladesh/article/%')
             ->get();
