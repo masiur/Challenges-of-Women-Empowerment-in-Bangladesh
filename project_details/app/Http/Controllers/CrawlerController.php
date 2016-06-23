@@ -143,7 +143,7 @@ public function prothomAloDetails()
 
      set_time_limit(0);  //this will execute untill the job finished
 
-     $counter = Crawler::where('news_link', 'like', 'http://www.prothom-alo.com/bangladesh/article/%')
+     $counter = Crawler::where('id', '>=', 9718)
             ->get();
 
         foreach ($counter as $i => $countNum) {
@@ -210,7 +210,7 @@ public function prothomAloDetails()
           
           //Use the modulus operator to detect multiples of 10.
              if ($i > 0 && $i % 10 == 0) {
-                   sleep(5);
+                   sleep(2);
               }
 
       } 
