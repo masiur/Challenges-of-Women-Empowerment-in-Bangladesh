@@ -51,20 +51,24 @@ Route::group(array('middleware' => 'auth'), function()
 Route::get('data',function(){
 	//return \App\Crawler::all();
 
-	return ini_get('max_execution_time'); 
+	//return ini_get('max_execution_time'); 
+
+	return \App\Crawler::where('ovrrall',1)->count();
 });
 
 
-
+//carwler divider
 Route::get('prothomAloLinks', ['uses' => 'CrawlerController@prothomAloLinks']);
 Route::get('prothomAloDetails', ['uses' => 'CrawlerController@prothomAloDetails']);
 
-
-Route::get('all', ['uses' => 'CrawlerController@all']);
+//all process for news crawling
+Route::get('search-women-news', ['uses' => 'CrawlerController@all']);
 Route::get('prothomAlo', ['uses' => 'CrawlerController@prothomAlo']);
 
 
-//Route::get('test', ['uses' => 'CrawlerController@test']);
+//Divide women news form all news 
+Route::get('womenNews', ['uses' => 'AnalyzeController@areWomenNews']);
+
 
 
 
