@@ -67,7 +67,7 @@ class CrawlerController extends Controller
          set_time_limit(0);  //this will execute untill the job finished
 
 
-           for($page = 1; $page <= 4600 ; $page++) {
+           for($page = 50; $page <= 4600 ; $page++) {
             //set url
 
             $url = "http://www.prothom-alo.com/bangladesh/article?page=" . $page;
@@ -121,11 +121,11 @@ class CrawlerController extends Controller
 
            }
 
-           sleep(5);
+          
 
            //Use the modulus operator to detect multiples of 10.
              if ($page > 0 && $page % 10 == 0) {
-                   sleep(15);
+                   sleep(2);
               }
 
     }
@@ -146,11 +146,11 @@ public function prothomAloDetails()
 
      
 
-        $counter = Crawler::where('id', '>=', 9718)
-            ->get();
-
-           // $counter = Crawler::where('news_link', 'like', 'http://www.prothom-alo.com/bangladesh/article/%')
+      //  $counter = Crawler::where('id', '>=', 9718)
             //->get();
+
+        $counter = Crawler::where('news_link', 'like', 'http://www.prothom-alo.com/bangladesh/article/%')
+              ->get();
 
         foreach ($counter as $i => $countNum) {
 
@@ -203,7 +203,7 @@ public function prothomAloDetails()
             //======================================================================================
 
             Crawler::where('news_link', $countNum->news_link)->update([
-                //'title' => $data[0][0],
+                'title' => $data[0][0],
                 'details' => $data[2][0],
                 'newspaper' => 'Prothom-Alo',
                 'date' => $bangla_date,

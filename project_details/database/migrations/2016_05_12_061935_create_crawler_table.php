@@ -16,7 +16,7 @@ class CreateCrawlerTable extends Migration
         {
             $table->increments('id');
             $table->text('news_link')->nullable();
-           // $table->text('title')->nullable();
+            $table->text('title')->nullable();
             $table->text('details')->nullable();
             $table->text('newspaper')->nullable();
             $table->text('date')->nullable();
@@ -37,9 +37,11 @@ class CreateCrawlerTable extends Migration
            $table->integer('job')->default(0); 
            $table->integer('education')->default(0);
 
-           $table->integer('ovrrall')->default(0); 
+           $table->integer('overall')->default(0);         //women news or not
+           $table->integer('is_goodOrBad')->default(0);     //good women news or bad news
 
-           $table->string('type');  
+
+           $table->string('type');  //type be like 'rape', 'murder' etc
            
 
         });

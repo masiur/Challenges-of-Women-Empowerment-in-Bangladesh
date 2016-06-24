@@ -27,14 +27,13 @@ class AnalyzeController extends Controller
 
             			foreach ($counter as $i => $newsCounter) {
 
-            				$string = $newsCounter->details;
+            				$string = $newsCounter->title;
             				
 
             				$words = array(" নারী "," ধর্ষণ "," মেয়ে "," যৌতুক ", " মহিলা ",
             					" কিশোরী "," পরিচারিকা ", " বালিকা "," তরুণী ",
             					 " পরকীয়া ", " পরকিয়া ", " নারি "
-
-            					 );
+							 );
 
             				$sum = 0;
             				foreach($words as $word) {
