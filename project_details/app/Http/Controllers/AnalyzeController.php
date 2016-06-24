@@ -45,11 +45,11 @@ class AnalyzeController extends Controller
 
 							if($sum != 0){
 								  Crawler::where('id', $newsCounter->id)->update([
-						               'ovrrall' =>  1,
+						               'overall' =>  1,
 						            ]);
 							}else{
 								Crawler::where('id', $newsCounter->id)->update([
-						               'ovrrall' =>  0,
+						               'overall' =>  0,
 						            ]);
 							}
 
