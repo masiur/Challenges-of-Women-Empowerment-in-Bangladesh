@@ -53,7 +53,7 @@ Route::get('data',function(){
 
 	//return ini_get('max_execution_time'); 
 
-	return \App\Crawler::where('ovrrall',1)->count();
+	return \App\Crawler::where('overall',1)->count();
 });
 
 
