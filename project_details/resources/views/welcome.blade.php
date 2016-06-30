@@ -33,12 +33,17 @@
             .title {
                 font-size: 96px;
             }
+            .headline{
+                 font-size: 56px;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Predict Women condition</div>
+                
+                 <div class="headline"> Predict</div>
+                <div class="title"><b>Women Condition</b></div>
                 <h1>Through Bengali Newspaper</h1>
             </div>
         </div>

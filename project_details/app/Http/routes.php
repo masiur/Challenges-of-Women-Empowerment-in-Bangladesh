@@ -47,14 +47,30 @@ Route::group(array('middleware' => 'auth'), function()
 });
 
 
-
-Route::get('data',function(){
-	//return \App\Crawler::all();
-
-	//return ini_get('max_execution_time'); 
-
+//all women news 
+Route::get('all',function(){
+	
 	return \App\Crawler::where('overall',1)->count();
 });
+
+
+//bad news 
+Route::get('bad',function(){
+	return \App\Crawler::where('overall',1)
+		->where('is_goodOrBad',1)
+		//->count();
+		->get();
+});
+
+
+//bad news 
+Route::get('good',function(){
+	return \App\Crawler::where('overall',1)
+		->where('is_goodOrBad',0)
+		//->count();
+		->get();
+});
+
 
 
 //carwler divider
@@ -69,15 +85,17 @@ Route::get('prothomAlo', ['uses' => 'CrawlerController@prothomAlo']);
 //Divide women news form all news 
 Route::get('womenNews', ['uses' => 'AnalyzeController@areWomenNews']);
 
+//Divide the good news and bad news from all women news 
+Route::get('newsBadOrGood', ['uses' => 'AnalyzeController@areGoodOrBad']);
 
 
+//Divide the good news into different category 
+Route::get('goodNewsCategorized', ['uses' => 'AnalyzeController@goodNewsCategorized']);
 
 
+//Divide the bad news into different category 
+Route::get('badNewsCategorized', ['uses' => 'AnalyzeController@badNewsCategorized']);
 
 
-
-
-
-
-
-
+//Define Final type for each women news 
+Route::get('setType', ['uses' => 'AnalyzeController@setType']);
