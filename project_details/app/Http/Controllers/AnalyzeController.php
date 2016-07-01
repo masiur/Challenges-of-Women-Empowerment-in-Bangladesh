@@ -383,24 +383,114 @@ class AnalyzeController extends Controller
 
 		 set_time_limit(0);  //this will execute untill the job finished
 
-		 $counter = Crawler::where('news_link', 'like', 'http://www.prothom-alo.com/bangladesh/article/%')
+		 $counter = Crawler::where('overall', '=', 1)  //all women news 
+       							//->where('is_goodOrBad',0) //all good news
             					->get();
 
 
             			foreach ($counter as $i => $newsCounter) {
 
-            				$string = $newsCounter->title;
             				
-                           //bubble sort occurs
+                            // all data 
+            				$rape = $newsCounter->rape;
+            				$suicide = $newsCounter->suicide;
+            				$domestic_violence = $newsCounter->domestic_violence;
+            				$doury = $newsCounter->doury;
+            				$sexual_harassment = $newsCounter->sexual_harassment;
+            				$murder = $newsCounter->murder;
 
-							if($sum != 0){
-								  Crawler::where('id', $newsCounter->id)->update([
-						               'type' =>  1,
-						            ]);
-							}else{
+ 							$power = $newsCounter->power;
+            				$job = $newsCounter->job;
+            				$education = $newsCounter->education;
 
-									
-							}
+
+
+
+            				
+                            // define the array 
+            				$arr  = array($rape,$suicide,$domestic_violence,$doury,$sexual_harassment,
+            					$murder,$power,$job,$education );
+
+            					// call bubble sort from Crawler Model 
+                                $result = \App\Crawler::bubbleSort($arr);
+                               
+                               //getting the bigest data from the array 
+                                 $big =  $result[8];
+
+                                 //return $big;
+
+
+
+                                // update database with fowlling condition   
+
+							   if( $big == 0 ){
+                                        Crawler::where('id', $newsCounter->id)->update([
+								               'type' =>  'others',
+								        ]);
+							   }
+							   elseif($rape == $big){
+
+										Crawler::where('id', $newsCounter->id)->update([
+								               'type' =>  'rape',
+								        ]);
+                               }
+                               elseif($suicide == $big){
+
+										Crawler::where('id', $newsCounter->id)->update([
+								               'type' =>  'suicide',
+								        ]);
+                               }
+                               elseif($domestic_violence == $big){
+                               	
+                               			Crawler::where('id', $newsCounter->id)->update([
+								               'type' =>  'domestic_violence',
+								        ]);
+                               }
+                               elseif($doury == $big){
+                               	
+                               			Crawler::where('id', $newsCounter->id)->update([
+								               'type' =>  'doury',
+								        ]);
+                               }
+                               elseif($sexual_harassment == $big){
+                               	
+                               			Crawler::where('id', $newsCounter->id)->update([
+								               'type' =>  'sexual_harassment',
+								        ]);
+                               }
+                               elseif($murder == $big){
+                               	
+                               			Crawler::where('id', $newsCounter->id)->update([
+								               'type' =>  'murder',
+								        ]);
+                               }
+                               elseif($power == $big){
+                               	
+                               			Crawler::where('id', $newsCounter->id)->update([
+								               'type' =>  'power',
+								        ]);
+                               }
+                               elseif($job == $big){
+                               	
+                               			Crawler::where('id', $newsCounter->id)->update([
+								               'type' =>  'job',
+								        ]);
+                               }
+                               elseif($education == $big){
+
+										Crawler::where('id', $newsCounter->id)->update([
+								               'type' =>  'education',
+								        ]);
+                               }else{
+
+										Crawler::where('id', $newsCounter->id)->update([
+								               'type' =>  'others',
+								        ]);
+                               }
+
+
+
+
 
 							//Use the modulus operator to detect multiples of 10.
 				             if ($i > 0 && $i % 10 == 0) {
@@ -411,6 +501,7 @@ class AnalyzeController extends Controller
 
 
 	}
+
 
 
 
