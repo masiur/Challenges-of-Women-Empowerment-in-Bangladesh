@@ -12,6 +12,12 @@ class Crawler extends Model
 
 
 
+
+/*
+*
+* Bubble sort to define the news type 
+*/
+
 public static  function bubbleSort(array $arr)
 {
  

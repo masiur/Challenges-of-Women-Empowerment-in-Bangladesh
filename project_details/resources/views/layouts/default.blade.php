@@ -5,14 +5,12 @@
 @yield('style')
 <body>
 
-@include('includes.sideBar')
-
-
-@include('includes.topMenu')
 
 <section class="wraper container-fluid">
     <section class="">
+       <center>
         @yield('content')
+       </center>
     </section>
 </section>
 

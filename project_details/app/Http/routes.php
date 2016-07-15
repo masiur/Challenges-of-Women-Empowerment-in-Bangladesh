@@ -18,33 +18,33 @@ Route::get('/', function () {
 
 
 
-Route::group(['middleware' => 'guest'], function(){
-	Route::controller('password', 'RemindersController');
-	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
-	Route::get('user/create', ['as'=>'user.create','uses' => 'UsersController@create']);
-	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
-	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
+// Route::group(['middleware' => 'guest'], function(){
+// 	Route::controller('password', 'RemindersController');
+// 	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
+// 	Route::get('user/create', ['as'=>'user.create','uses' => 'UsersController@create']);
+// 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
+// 	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
 
 
-	// social login route
-	Route::get('login/fb', ['as'=>'login/fb','uses' => 'SocialController@loginWithFacebook']);
-	Route::get('login/gp', ['as'=>'login/gp','uses' => 'SocialController@loginWithGoogle']);
+// 	// social login route
+// 	Route::get('login/fb', ['as'=>'login/fb','uses' => 'SocialController@loginWithFacebook']);
+// 	Route::get('login/gp', ['as'=>'login/gp','uses' => 'SocialController@loginWithGoogle']);
 
-});
-
-
-
-Route::group(array('middleware' => 'auth'), function()
-{
-
-	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
-	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
-	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
-	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
-	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
+// });
 
 
-});
+
+// Route::group(array('middleware' => 'auth'), function()
+// {
+
+// 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
+// 	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
+// 	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
+// 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
+// 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
+
+
+// });
 
 
 //all women news 
@@ -63,13 +63,29 @@ Route::get('bad',function(){
 });
 
 
-//bad news 
+//good news 
 Route::get('good',function(){
 	return \App\Crawler::where('overall',1)
 		->where('is_goodOrBad',0)
 		//->count();
 		->get();
 });
+
+
+
+Route::get('group',function(){
+	$types = \App\Crawler::where('overall',1)
+		//->where('is_goodOrBad',0)
+		   ->select('type', \DB::raw('count(id) as news'))
+            ->groupBy('type')
+            ->get();
+
+      //return  $types->lists('news');
+      return  $types->lists('type');
+            
+});
+
+
 
 
 
@@ -99,3 +115,7 @@ Route::get('badNewsCategorized', ['uses' => 'AnalyzeController@badNewsCategorize
 
 //Define Final type for each women news 
 Route::get('setType', ['uses' => 'AnalyzeController@setType']);
+
+
+//all data and 
+Route::get('index', ['as' => 'dashboard','uses' => 'GraphController@indexPage']);

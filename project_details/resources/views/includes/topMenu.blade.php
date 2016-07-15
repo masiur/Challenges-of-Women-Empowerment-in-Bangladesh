@@ -1,4 +1,4 @@
-<!-- Header -->
+Header
 <section class="content">
 <header class="top-head container-fluid">
                 <button type="button" class="navbar-toggle pull-left">
@@ -40,9 +40,9 @@
 
                     <ul class="nav navbar-nav navbar-right top-menu top-right-menu">
 
-                        @include('includes.notificationMenu')
+                        <!-- @include('includes.notificationMenu')
                         @include('includes.inboxMenu')
-                        @include('includes.profileMenu')
+                        @include('includes.profileMenu') -->
 
                     </ul>
                     <!-- End right navbar -->

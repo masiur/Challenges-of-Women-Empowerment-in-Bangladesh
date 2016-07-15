@@ -1,7 +1,7 @@
 <!-- Footer Start -->
-<footer class="footer">
+<!-- <footer class="footer">
 	Copyright &copy; 2016InfancyIT, Bangladesh. All rights reserved.
-</footer>
+</footer> -->
 <!-- Footer Ends -->
 
 
