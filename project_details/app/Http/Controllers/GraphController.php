@@ -54,6 +54,13 @@ class GraphController extends Controller
  
 
 
+      $pie = \App\Crawler::where('overall',1)
+        //->where('is_goodOrBad',0)
+       ->select('type', \DB::raw('count(id) as news'))
+            ->groupBy('type')
+            ->get();
+
+
 
 		return view('dashboard',compact('good_news'))
 		->with('title', "Women Condition")
@@ -73,9 +80,44 @@ class GraphController extends Controller
                 'good_news_label' =>  $good_news->lists('label'),
                 'good_news_value' =>  $good_news->lists('value'),
 
+                'pie_group_type' =>  $pie->lists('type'),
+                'pie_group_news' =>  $pie->lists('news'),
+
                 ]);
 	}
     
+
+
+
+
+
+
+
+
+public function testing(){
+
+
+   $types = \App\Crawler::where('overall',1)
+        //->where('is_goodOrBad',0)
+       ->select('type', \DB::raw('count(id) as news'))
+            ->groupBy('type')
+            ->get();
+
+
+
+  return view('testing',compact('types'))
+    ->with('title', "Women Condition")
+    ->with([
+                'type_group' =>  $types->lists('type'),
+                'news_group' =>  $types->lists('news')
+
+                ]);
+
+}
+
+
+
+
 
 
 

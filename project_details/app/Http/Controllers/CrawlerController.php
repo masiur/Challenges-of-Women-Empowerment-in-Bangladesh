@@ -67,7 +67,7 @@ class CrawlerController extends Controller
          set_time_limit(0);  //this will execute untill the job finished
 
 
-           for($page = 50; $page <= 4600 ; $page++) {
+           for($page = 1; $page <= 500 ; $page++) {
             //set url
 
             $url = "http://www.prothom-alo.com/bangladesh/article?page=" . $page;

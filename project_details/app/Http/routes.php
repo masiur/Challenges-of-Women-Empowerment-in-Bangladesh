@@ -119,3 +119,7 @@ Route::get('setType', ['uses' => 'AnalyzeController@setType']);
 
 //all data and 
 Route::get('index', ['as' => 'dashboard','uses' => 'GraphController@indexPage']);
+
+
+//test 
+Route::get('testing', ['as' => 'testing','uses' => 'GraphController@testing']);

@@ -10,6 +10,8 @@
         {{--renter graph--}}
         <br/><br/>
 
+
+
        <div class="col-md-6">
                 <div class="portlet"><!-- /primary heading -->
                     <div class="portlet-heading">
@@ -166,6 +168,10 @@
             </div>
 		
 
+         
+
+
+
     </div> <!-- end row -->
 
 @stop
@@ -179,7 +185,7 @@
 
 @section('script')
    
-{!! Html::script('assets/chartjs/chart.min.js') !!}
+     {!! Html::script('assets/chartjs/chart.min.js') !!}
      {!! Html::script('assets/chartjs/chartjs.init.js') !!}
 
     <script type="text/javascript">

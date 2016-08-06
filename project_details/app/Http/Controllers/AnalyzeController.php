@@ -238,10 +238,10 @@ class AnalyzeController extends Controller
 							}
 
 
- 							//+++++++++++Doury++++++
+ 							//+++++++++++Dowry++++++
 
                             $word ="যৌতুক";
-						    $doury = substr_count($string, $word);
+						    $dowry = substr_count($string, $word);
 
 
 						    //+++++++++++sexual_harassment++++++
@@ -263,7 +263,7 @@ class AnalyzeController extends Controller
 								               'rape' => $rape,
 								               'suicide' =>  $suicide,
 								               'domestic_violence' => $domestic,
-								               'doury' => $doury,
+								               'dowry' => $dowry,
 								               'sexual_harassment' => $sexual,
 								               'murder' =>  $murder,
 								        ]);
@@ -395,7 +395,7 @@ class AnalyzeController extends Controller
             				$rape = $newsCounter->rape;
             				$suicide = $newsCounter->suicide;
             				$domestic_violence = $newsCounter->domestic_violence;
-            				$doury = $newsCounter->doury;
+            				$dowry = $newsCounter->dowry;
             				$sexual_harassment = $newsCounter->sexual_harassment;
             				$murder = $newsCounter->murder;
 
@@ -408,7 +408,7 @@ class AnalyzeController extends Controller
 
             				
                             // define the array 
-            				$arr  = array($rape,$suicide,$domestic_violence,$doury,$sexual_harassment,
+            				$arr  = array($rape,$suicide,$domestic_violence,$dowry,$sexual_harassment,
             					$murder,$power,$job,$education );
 
             					// call bubble sort from Crawler Model 
@@ -446,10 +446,10 @@ class AnalyzeController extends Controller
 								               'type' =>  'domestic_violence',
 								        ]);
                                }
-                               elseif($doury == $big){
+                               elseif($dowry == $big){
                                	
                                			Crawler::where('id', $newsCounter->id)->update([
-								               'type' =>  'doury',
+								               'type' =>  'dowry',
 								        ]);
                                }
                                elseif($sexual_harassment == $big){
