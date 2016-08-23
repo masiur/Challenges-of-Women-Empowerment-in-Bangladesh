@@ -81,7 +81,7 @@ class CrawlerController extends Controller
         // libxml_clear_errors();
         // $xpath = new \DOMXpath($dom);
 
-            $ch = curl_init("http://www.prothom-alo.com/bangladesh/article?page=".$page);
+            $ch = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
             curl_setopt($ch, CURLOPT_URL, trim($ch));
             $page = curl_exec($ch);
 
