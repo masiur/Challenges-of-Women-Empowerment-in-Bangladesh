@@ -159,7 +159,7 @@ class CrawlerController extends Controller
 
     }
 
-    }catch(Exception ex){
+    }catch(Exception $ex){
 
     }
     
