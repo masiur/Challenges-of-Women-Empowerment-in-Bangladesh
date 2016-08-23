@@ -69,7 +69,7 @@ class CrawlerController extends Controller
 
     for ($page = 700; $page <= 55500; $page = $page+5) {
         
-       set url
+      // set url
         $url = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
         $client = new \GuzzleHttp\Client();
         $response = $client->get($url);
