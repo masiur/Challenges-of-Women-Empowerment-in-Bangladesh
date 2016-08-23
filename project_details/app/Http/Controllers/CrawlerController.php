@@ -58,16 +58,17 @@ class CrawlerController extends Controller
 
 
 
+  
 
 
 
-    public function prothomAloLinks() {
+  public function prothomAloLinks() {
   
 
     set_time_limit(0); //this will execute untill the job finished
 
 
-    for ($page = 710; $page <= 55500; $page = $page+5) {
+    for ($page = 712; $page <= 55500; $page = $page+5) {
         
       // set url
         $url = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
@@ -81,36 +82,30 @@ class CrawlerController extends Controller
         libxml_clear_errors();
         $xpath = new \DOMXpath($dom);
 
-            // $ch = curl_init("http://www.prothom-alo.com/bangladesh/article?page=".$page);
-            // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            // $page = curl_exec($ch);
-
-            // $dom = new \DOMDocument();
-            // libxml_use_internal_errors(true);
-            // $dom->loadHTML($page);
-            // libxml_clear_errors();
-            // $xpath = new \DOMXpath($dom);
-
-            // $data = array();
-
 
         //Getting all data
         $table_rows = $xpath -> query('//h2[@class="title"]/a/@href');
-
-
-       // $data = array();
-        foreach($table_rows as $row => $tr) {
-            foreach($tr -> childNodes as $td) {
-                $data[$row][] = preg_replace('~[\r\n]+~', '', trim($td -> nodeValue));
+       $data = array();
+        foreach ($table_rows as $row => $tr) {
+            foreach ($tr->childNodes as $td) {
+                $data[$row][] = preg_replace('~[\r\n]+~', '', trim($td->nodeValue));
             }
             $data[$row] = array_values(array_filter($data[$row]));
 
+        }
 
-            $crawl = new Crawler();
+
+
+
+
+            
+        if(count($data) !=0){
+
             for ($j = 0; $j < count($data); $j++) {
 
 
                 $a = $data[$j][0];
+                $crawl = new Crawler();
 
                 if (strpos($a, 'bangladesh') !== false) {
                     
@@ -119,13 +114,14 @@ class CrawlerController extends Controller
                     //  ->count();
 
                     //if ($check == 0) {
-
-                    $crawl -> news_link = $detail;
+                    
+                    $crawl->news_link = $detail;
 
                     try {
-                        $crawl -> save();
 
-                    } catch (\Exception $e) {
+                        $crawl->save();
+
+                    } catch(\Exception $e) {
 
                     }
 
@@ -133,10 +129,11 @@ class CrawlerController extends Controller
                 } else {
 
                     $detail = 'http://www.prothom-alo.com/bangladesh/'.$a;
-                    $crawl -> news_link = $detail;
+                    $crawl->news_link = $detail;
 
                     try {
-                        $crawl -> save();
+
+                        $crawl->save();
 
                     } catch (\Exception $e) {
 
@@ -147,8 +144,10 @@ class CrawlerController extends Controller
 
             }
 
+        
+        }else{
+            
         }
-
 
 
         //Use the modulus operator to detect multiples of 10.
@@ -160,6 +159,12 @@ class CrawlerController extends Controller
 
     
     }
+
+
+
+
+
+
 
 
 
