@@ -73,16 +73,16 @@ function prothomAloLinks() {
 
         $url = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
 
-       c.setopt(pycurl.HTTP_VERSION, pycurl.CURL_HTTP_VERSION_1_0) 
-        $client = new\ GuzzleHttp\ Client();
-        $response = $client -> get($url);
-        $body = (string) $response -> getBody();
-        $dom = new\ DOMDocument();
+       
+        $client = new \GuzzleHttp\Client();
+        $response = $client->get($url);
+        $body = (string)$response->getBody();
+        $dom = new \DOMDocument();
         libxml_use_internal_errors(true);
         $body = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8");
-        $dom -> loadHTML($body);
+        $dom->loadHTML($body);
         libxml_clear_errors();
-        $xpath = new\ DOMXpath($dom);
+        $xpath = new \DOMXpath($dom);
 
         //Getting all data
         $table_rows = $xpath -> query('//h2[@class="title"]/a/@href');
