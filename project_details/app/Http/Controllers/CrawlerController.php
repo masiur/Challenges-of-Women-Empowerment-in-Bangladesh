@@ -61,10 +61,10 @@ class CrawlerController extends Controller
 
 
 
-    public
-function prothomAloLinks() {
+    public function prothomAloLinks() {
+    try{
 
-    //ini_set('MAX_EXECUTION_TIME', -1);
+        //ini_set('MAX_EXECUTION_TIME', -1);
     set_time_limit(0); //this will execute untill the job finished
 
 
@@ -158,7 +158,12 @@ function prothomAloLinks() {
         //  }
 
     }
-}
+
+    }catch(Exception ex){
+
+    }
+    
+    }
 
 
 
