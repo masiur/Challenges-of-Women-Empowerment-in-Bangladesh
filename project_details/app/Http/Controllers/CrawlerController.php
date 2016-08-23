@@ -61,77 +61,93 @@ class CrawlerController extends Controller
 
 
 
-    public  function prothomAloLinks(){
+    public
+function prothomAloLinks() {
 
-        //ini_set('MAX_EXECUTION_TIME', -1);
-         set_time_limit(0);  //this will execute untill the job finished
-
-
-           for($page = 1; $page <= 55500 ; $page+5) {
-            //set url
-
-            $url = "http://www.prothom-alo.com/bangladesh/article?page=" . $page;
+    //ini_set('MAX_EXECUTION_TIME', -1);
+    set_time_limit(0); //this will execute untill the job finished
 
 
-            $client = new \GuzzleHttp\Client();
-            $response = $client->get($url);
-            $body = (string)$response->getBody();
-            $dom = new \DOMDocument();
-            libxml_use_internal_errors(true);
-            $body = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8");
-            $dom->loadHTML($body);
-            libxml_clear_errors();
-            $xpath = new \DOMXpath($dom);
+    for ($page = 1; $page <= 55500; $page=$page+5) {
+        //set url
+
+        $url = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
 
 
-            //Getting all data
-             $table_rows = $xpath->query('//h2[@class="title"]/a/@href');
+        $client = new\ GuzzleHttp\ Client();
+        $response = $client -> get($url);
+        $body = (string) $response -> getBody();
+        $dom = new\ DOMDocument();
+        libxml_use_internal_errors(true);
+        $body = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8");
+        $dom -> loadHTML($body);
+        libxml_clear_errors();
+        $xpath = new\ DOMXpath($dom);
+
+        //Getting all data
+        $table_rows = $xpath -> query('//h2[@class="title"]/a/@href');
 
 
-            $data = array();
-             foreach ($table_rows as $row => $tr) {
-                foreach ($tr->childNodes as $td) {
-                    $data[$row][] = preg_replace('~[\r\n]+~', '', trim($td->nodeValue));
-                 }
-                $data[$row] = array_values(array_filter($data[$row]));
+        $data = array();
+        foreach($table_rows as $row => $tr) {
+            foreach($tr -> childNodes as $td) {
+                $data[$row][] = preg_replace('~[\r\n]+~', '', trim($td -> nodeValue));
+            }
+            $data[$row] = array_values(array_filter($data[$row]));
 
 
-                 $crawl = new Crawler();
-                 for ($j = 0; $j < count($data); $j++) {
-                   $detail = 'http://www.prothom-alo.com/bangladesh/' . $data[$j][0];
-
-                  //  $check = Crawler::where('news_link', '=', $detail)
-                     //  ->count();
-
-               //if ($check == 0) {
-
-                        $crawl->news_link = $detail;
-
-                         try {
-                            $crawl->save();
-
-                        } catch (\Exception $e) {
-
-                        }
-
-                  // }
+            $crawl = new Crawler();
+            for ($j = 0; $j < count($data); $j++) {
 
 
+                $a = $data[$j][0];
+
+                if (strpos($a, 'bangladesh') !== false) {
+                    
+                    $detail = 'http://www.prothom-alo.com'.$a;
+                    //  $check = Crawler::where('news_link', '=', $detail)
+                    //  ->count();
+
+                    //if ($check == 0) {
+
+                    $crawl -> news_link = $detail;
+
+                    try {
+                        $crawl -> save();
+
+                    } catch (\Exception $e) {
+
+                    }
+
+                    // }
+                } else {
+
+                    $detail = 'http://www.prothom-alo.com/bangladesh/'.$a;
+                    $crawl -> news_link = $detail;
+
+                    try {
+                        $crawl -> save();
+
+                    } catch (\Exception $e) {
+
+                    }
                 }
 
-           }
 
-          
 
-           //Use the modulus operator to detect multiples of 10.
-             // if ($page > 0 && $page % 10 == 0) {
-             //       sleep(2);
-             //  }
+            }
+
+        }
+
+
+
+        //Use the modulus operator to detect multiples of 10.
+        // if ($page > 0 && $page % 10 == 0) {
+        //       sleep(2);
+        //  }
 
     }
 }
-
-
 
 
 
