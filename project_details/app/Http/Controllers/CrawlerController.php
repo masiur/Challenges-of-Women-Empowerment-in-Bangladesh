@@ -74,16 +74,15 @@ class CrawlerController extends Controller
         // $client = new \GuzzleHttp\Client();
         // $response = $client->get($url);
         // $body = (string)$response->getBody();
-        
         // $dom = new \DOMDocument();
-        // libxml_use_internal_errors(true);
+        // libxml_use_internal_errors(false);
         // $body = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8");
         // $dom->loadHTML($body);
         // libxml_clear_errors();
         // $xpath = new \DOMXpath($dom);
 
             $ch = curl_init("http://www.prothom-alo.com/bangladesh/article?page=".$page);
-           // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_URL, trim($ch));
             $page = curl_exec($ch);
 
             $dom = new \DOMDocument();
