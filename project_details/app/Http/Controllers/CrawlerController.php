@@ -69,30 +69,29 @@ class CrawlerController extends Controller
 
     for ($page = 700; $page <= 55500; $page = $page+5) {
         
-       // set url
-        // $url = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
-        // $client = new \GuzzleHttp\Client();
-        // $response = $client->get($url);
-        // $body = (string)$response->getBody();
-        // $dom = new \DOMDocument();
-        // libxml_use_internal_errors(false);
-        // $body = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8");
-        // $dom->loadHTML($body);
-        // libxml_clear_errors();
-        // $xpath = new \DOMXpath($dom);
+       set url
+        $url = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
+        $client = new \GuzzleHttp\Client();
+        $response = $client->get($url);
+        $body = (string)$response->getBody();
+        $dom = new \DOMDocument();
+        libxml_use_internal_errors(false);
+        $body = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8");
+        $dom->loadHTML($body);
+        libxml_clear_errors();
+        $xpath = new \DOMXpath($dom);
 
-            $ch = curl_init("http://www.prothom-alo.com/bangladesh/article?page=".$page);
-            //curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_PORT, 44455); //Set the port to connect to
-            $page = curl_exec($ch);
+            // $ch = curl_init("http://www.prothom-alo.com/bangladesh/article?page=".$page);
+            // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            // $page = curl_exec($ch);
 
-            $dom = new \DOMDocument();
-            libxml_use_internal_errors(true);
-            $dom->loadHTML($page);
-            libxml_clear_errors();
-            $xpath = new \DOMXpath($dom);
+            // $dom = new \DOMDocument();
+            // libxml_use_internal_errors(true);
+            // $dom->loadHTML($page);
+            // libxml_clear_errors();
+            // $xpath = new \DOMXpath($dom);
 
-            $data = array();
+            // $data = array();
 
 
         //Getting all data
