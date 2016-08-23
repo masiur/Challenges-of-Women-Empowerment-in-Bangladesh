@@ -81,8 +81,9 @@ class CrawlerController extends Controller
         // libxml_clear_errors();
         // $xpath = new \DOMXpath($dom);
 
-            $ch = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
-            curl_setopt($ch, CURLOPT_URL, trim($ch));
+            $ch = curl_init("http://www.prothom-alo.com/bangladesh/article?page=".$page);
+            //curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_PORT, 44455); //Set the port to connect to
             $page = curl_exec($ch);
 
             $dom = new \DOMDocument();
