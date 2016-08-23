@@ -73,7 +73,7 @@ function prothomAloLinks() {
 
         $url = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
 
-
+       c.setopt(pycurl.HTTP_VERSION, pycurl.CURL_HTTP_VERSION_1_0) 
         $client = new\ GuzzleHttp\ Client();
         $response = $client -> get($url);
         $body = (string) $response -> getBody();
