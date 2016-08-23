@@ -67,7 +67,7 @@ class CrawlerController extends Controller
     set_time_limit(0); //this will execute untill the job finished
 
 
-    for ($page = 440; $page <= 55500; $page = $page+7) {
+    for ($page = 660; $page <= 55500; $page = $page+5) {
         
        // set url
         $url = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
@@ -75,7 +75,7 @@ class CrawlerController extends Controller
         $response = $client->get($url);
         $body = (string)$response->getBody();
         $dom = new \DOMDocument();
-        libxml_use_internal_errors(true);
+        libxml_use_internal_errors(false);
         $body = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8");
         $dom->loadHTML($body);
         libxml_clear_errors();
