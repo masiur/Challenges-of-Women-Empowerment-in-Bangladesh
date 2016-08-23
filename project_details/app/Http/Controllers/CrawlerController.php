@@ -75,7 +75,7 @@ class CrawlerController extends Controller
         $response = $client->get($url);
         $body = (string)$response->getBody();
         $dom = new \DOMDocument();
-        libxml_use_internal_errors(false);
+        libxml_use_internal_errors(true);
         $body = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8");
         $dom->loadHTML($body);
         libxml_clear_errors();
