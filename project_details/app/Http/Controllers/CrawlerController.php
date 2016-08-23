@@ -62,35 +62,34 @@ class CrawlerController extends Controller
 
 
     public function prothomAloLinks() {
-    try{
+  
 
-        //ini_set('MAX_EXECUTION_TIME', -1);
     set_time_limit(0); //this will execute untill the job finished
 
 
     for ($page = 1; $page <= 55500; $page=$page+5) {
-        //set url
+        
+       // set url
+        $url = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
+        $client = new \GuzzleHttp\Client();
+        $response = $client->get($url);
+        $body = (string)$response->getBody();
+        $dom = new \DOMDocument();
+        libxml_use_internal_errors(true);
+        $body = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8");
+        $dom->loadHTML($body);
+        libxml_clear_errors();
+        $xpath = new \DOMXpath($dom);
 
-       // $url = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
-        // $client = new \GuzzleHttp\Client();
-        // $response = $client->get($url);
-        // $body = (string)$response->getBody();
-        // $dom = new \DOMDocument();
-        // libxml_use_internal_errors(true);
-        // $body = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8");
-        // $dom->loadHTML($body);
-        // libxml_clear_errors();
-        // $xpath = new \DOMXpath($dom);
+            // $ch = curl_init("http://www.prothom-alo.com/bangladesh/article?page=".$page);
+            // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            // $page = curl_exec($ch);
 
-            $ch = curl_init("http://www.prothom-alo.com/bangladesh/article?page=".$page);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $page = curl_exec($ch);
-
-            $dom = new \DOMDocument();
-            libxml_use_internal_errors(true);
-            $dom->loadHTML($page);
-            libxml_clear_errors();
-            $xpath = new \DOMXpath($dom);
+            // $dom = new \DOMDocument();
+            // libxml_use_internal_errors(true);
+            // $dom->loadHTML($page);
+            // libxml_clear_errors();
+            // $xpath = new \DOMXpath($dom);
 
             $data = array();
 
@@ -159,9 +158,6 @@ class CrawlerController extends Controller
 
     }
 
-    }catch(Exception $ex){
-
-    }
     
     }
 
