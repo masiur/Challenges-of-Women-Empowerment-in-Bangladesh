@@ -110,6 +110,7 @@ class CrawlerController extends Controller
                 if (strpos($a, 'bangladesh') !== false) {
                     
                     $detail = 'http://www.prothom-alo.com'.$a;
+                    
                     //  $check = Crawler::where('news_link', '=', $detail)
                     //  ->count();
 
