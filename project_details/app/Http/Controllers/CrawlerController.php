@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Crawler;
+use DOMDocument;
 
 class CrawlerController extends Controller
 {
@@ -66,9 +67,9 @@ class CrawlerController extends Controller
   
 
     set_time_limit(0); //this will execute untill the job finished
+try{
 
-
-    for ($page = 712; $page <= 55500; $page = $page+5) {
+    for ($page = 1800; $page <= 5500; $page = $page+7) {
         
       // set url
         $url = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
@@ -77,10 +78,17 @@ class CrawlerController extends Controller
         $body = (string)$response->getBody();
         $dom = new \DOMDocument();
         libxml_use_internal_errors(true);
-        $body = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8");
-        $dom->loadHTML($body);
+        // $body = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8");
+        // $dom->loadHTML($body);
+           $searchPage = mb_convert_encoding($body, 'HTML-ENTITIES', "UTF-8"); 
+            @$dom->loadHTML($body);
+
         libxml_clear_errors();
         $xpath = new \DOMXpath($dom);
+
+           
+
+            
 
 
         //Getting all data
@@ -97,11 +105,11 @@ class CrawlerController extends Controller
 
 
 
-
+        $value = count($data);
             
-        if(count($data) !=0){
+       if( $value !=0){
 
-            for ($j = 0; $j < count($data); $j++) {
+            for ($j = 0; $j <  $value; $j++) {
 
 
                 $a = $data[$j][0];
@@ -146,9 +154,9 @@ class CrawlerController extends Controller
             }
 
         
-        }else{
+      }else{
             
-        }
+       }
 
 
         //Use the modulus operator to detect multiples of 10.
@@ -158,7 +166,10 @@ class CrawlerController extends Controller
 
     }
 
-    
+     }catch(Exception $e){
+
+    }
+
     }
 
 
@@ -178,13 +189,14 @@ public function prothomAloDetails()
 
      set_time_limit(0);  //this will execute untill the job finished
 
-     
+     try{
 
-      //  $counter = Crawler::where('id', '>=', 9718)
-            //->get();
+        $counter = Crawler::where('title','sorry')->get();
 
-        $counter = Crawler::where('news_link', 'like', 'http://www.prothom-alo.com/bangladesh/article/%')
-              ->get();
+
+
+       // $counter = Crawler::where('news_link', 'like', 'http://www.prothom-alo.com/bangladesh/article/%')
+           //   ->get();
 
         foreach ($counter as $i => $countNum) {
 
@@ -195,11 +207,18 @@ public function prothomAloDetails()
 
             $dom = new \DOMDocument();
             libxml_use_internal_errors(true);
-            $dom->loadHTML($page);
-            libxml_clear_errors();
-            $xpath = new \DOMXpath($dom);
+            $searchPage = mb_convert_encoding($page, 'HTML-ENTITIES', "UTF-8"); 
+            @$dom->loadHTML($page);
+           // libxml_clear_errors();
+             libxml_use_internal_errors(false);
 
-            $data = array();
+
+
+
+
+
+            $xpath = new \DOMXpath($dom);
+                $data = array();
 
             $table_rows = $xpath->query('//h1[@class="title mb10"]|
                                            //div[@itemprop="articleBody"]|
@@ -219,7 +238,9 @@ public function prothomAloDetails()
 
 
             //======================================================================================
-            $banglaDate = $data[1][0];
+            if(!empty($data[1][0])){
+
+             $banglaDate = $data[1][0];
 
             $search_array= array("১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯", "০", "জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট ", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর", ":", ",");
 
@@ -234,15 +255,38 @@ public function prothomAloDetails()
             // convert date
             $bangla_date = date("Y-m-d H:i ", strtotime($end_date));
            // echo $bangla_date;
+            }else{
+                $bangla_date = "00-00-00";
+            }
+                
             //======================================================================================
+            
+            //title
+            if(!empty($data[0][0])){
+                $title = $data[0][0];
+            }else{
+                $title = "sorry";
+            }
+
+
+            //description
+            if(!empty($data[2][0])){
+                $desc = $data[2][0];
+            }else{
+                $desc = "sorry";
+            }
+
+
 
             Crawler::where('news_link', $countNum->news_link)->update([
-                'title' => $data[0][0],
-                'details' => $data[2][0],
+                'title' => $title,
+                'details' => $desc,
                 'newspaper' => 'Prothom-Alo',
                 'date' => $bangla_date,
                 //'section' => $data[3],
             ]);
+
+
 
         // }
 
@@ -254,6 +298,10 @@ public function prothomAloDetails()
              //  }
 
       } 
+
+  }catch(Exception $ex){
+
+  }
 }
 
 
