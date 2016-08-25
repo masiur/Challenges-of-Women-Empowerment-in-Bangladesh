@@ -69,7 +69,7 @@ class CrawlerController extends Controller
     set_time_limit(0); //this will execute untill the job finished
 try{
 
-    for ($page = 1800; $page <= 5500; $page = $page+7) {
+    for ($page = 1890; $page <= 5500; $page = $page+5) {
         
       // set url
         $url = "http://www.prothom-alo.com/bangladesh/article?page=".$page;
@@ -191,12 +191,12 @@ public function prothomAloDetails()
 
      try{
 
-        $counter = Crawler::where('title','sorry')->get();
+        //$counter = Crawler::where('title','sorry')->get();
 
 
 
-       // $counter = Crawler::where('news_link', 'like', 'http://www.prothom-alo.com/bangladesh/article/%')
-           //   ->get();
+        $counter = Crawler::where('id', '>=',11081)
+              ->get();
 
         foreach ($counter as $i => $countNum) {
 
