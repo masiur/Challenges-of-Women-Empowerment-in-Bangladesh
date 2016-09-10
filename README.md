@@ -1,9 +1,10 @@
 
-# Predict-Women-Condition-in-Bangladesh-through-Bangla-Newspaper
+# Challenges of Women Empowerment in Bangladesh
+## A Study through Bangla Newspaper
 TODO: 
 
 		+ Collect data from Bangla Newspaper,
-		+ Analyze data and predict women condition
+		+ Analyze data and show results
 
 ##Developers
 
